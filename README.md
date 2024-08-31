@@ -17,7 +17,7 @@ We hope this competition inspires students to delve deeper into the world of rob
 
 ## Installation Instructions
 
-To install the BuggyRace competition source files and required software, run the following command in your terminal where the buggy_race_install.bash file is located:
+To install the BuggyRace competition source files and required software, run the following command in your terminal:
 
 ```bash
 cd path/to/buggy_race_install.bash
