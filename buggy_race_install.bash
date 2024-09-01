@@ -118,10 +118,6 @@ else
   git pull
 fi
 
-echo "Building BuggyRace workspace..."
-cd ~/BuggyRace
-colcon build --symlink-install
-source ~/.bashrc
 
 echo "Installing OpenCV Python package..."
 pip install opencv-python
@@ -134,6 +130,11 @@ echo "Installing dependencies"
 cd ~/BuggyRace
 rosdep install --from-paths src --ignore-src -r -y
 
+
+echo "Building BuggyRace workspace..."
+cd ~/BuggyRace
+colcon build --symlink-install
+source ~/.bashrc
 
 echo "Script execution completed."
 
