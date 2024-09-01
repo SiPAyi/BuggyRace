@@ -102,6 +102,7 @@ export ROS_DOMAIN_ID=9
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CCACHE_TEMPDIR=/tmp/ccache
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export CMAKE_PREFIX_PATH=/opt/ros/humble/:$CMAKE_PREFIX_PATH
 export PYTHONWARNINGS=ignore:::setuptools.installer,ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install
 
 EOF
