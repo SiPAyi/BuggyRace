@@ -3,18 +3,28 @@
 <package format="3">
   <name>virtual_world</name>
   <version>0.0.0</version>
-  <description>buggy files</description>
-  <maintainer email="saikr2005@gmail.com">Sai</maintainer>
+  <description>Buggy files</description>
+  <maintainer email="saikr2005@gmail.com">cogni</maintainer>
+  <license>Apache 2.0</license>
 
+  <!-- Build tool dependencies -->
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <!-- Runtime dependencies -->
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+  <depend>launch_xml</depend>
+  <depend>ament_index_python</depend> <!-- For get_package_share_directory -->
   <depend>robot_state_publisher</depend>
   <depend>urdf</depend>
 
+  <!-- Testing dependencies -->
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
+  <!-- Export -->
   <export>
     <build_type>ament_cmake</build_type>
   </export>
 </package>
+

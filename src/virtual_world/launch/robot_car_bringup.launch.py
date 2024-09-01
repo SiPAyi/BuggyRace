@@ -2,22 +2,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from pathlib import Path
-
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.conditions import LaunchConfigurationEquals
-from launch.substitutions import Command, PathJoinSubstitution
-from launch.substitutions.launch_configuration import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.conditions import IfCondition
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node
 
-from os import environ
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
-from launch.actions import ExecuteProcess
-from launch.conditions import LaunchConfigurationEquals, IfCondition
-
+# Launch Arguments
 ARGUMENTS = [
     DeclareLaunchArgument('x', default_value=['2.90'],
         description='x position'),
@@ -78,15 +71,20 @@ ARGUMENTS = [
     DeclareLaunchArgument('log_level', default_value='error',
                           choices=['info', 'warn', 'error'],
                           description='log level'),
+    
+    # Updated topic whitelist argument for Foxglove
+    DeclareLaunchArgument('topic_whitelist',
+        default_value=['["/camera/image_raw/compressed","/camera/camera_info", "/edge_vectors", "/debug_images/thresh_image", "/debug_images/vector_image","/robot_description"]'],
+        description='topic_whitelist for foxglove'
+    ),
 ]
-
-
 
 def generate_launch_description():
     pkg_virtual_world = Path(get_package_share_directory('virtual_world'))
     urdf_file = pkg_virtual_world / 'urdf'/ 'buggy.urdf'
     with open(urdf_file, 'r') as f:
         robot_desc = f.read()
+        
     line_follower_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -102,26 +100,6 @@ def generate_launch_description():
             ('/tf_static', 'tf_static')
         ]
     )
-    
-    synapse_ros = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([PathJoinSubstitution(
-            [get_package_share_directory('synapse_ros'), 'launch', 'synapse_ros.launch.py'])]),
-        condition=IfCondition(LaunchConfiguration('synapse_ros')),
-        launch_arguments=[('host', ['192.0.2.1']),
-                          ('port', '4242'),
-                          ('use_sim_time', LaunchConfiguration('use_sim_time'))]
-    )
-
-    synapse_gz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([PathJoinSubstitution(
-            [get_package_share_directory('synapse_gz'), 'launch', 'synapse_gz.launch.py'])]),
-        condition=IfCondition(LaunchConfiguration('synapse_gz')),
-        launch_arguments=[('host', ['127.0.0.1']),
-                          ('port', '4241'),
-                          ('vehicle', 'b3rb'),
-                          ('use_sim_time', LaunchConfiguration('use_sim_time'))]
-    )
-
     
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([PathJoinSubstitution(
@@ -206,6 +184,5 @@ def generate_launch_description():
         camera_info_bridge,
         camera_bridge,
         cmd_vel_bridge,
-        # synapse_ros,
-        # synapse_gz
     ])
+

@@ -86,6 +86,7 @@ sudo apt install gnome-terminal
 sudo apt-get install git wget -y
 
 echo "Updating rosdep..."
+rosdep init
 rosdep update
 
 # Modify .bashrc
@@ -126,6 +127,12 @@ source ~/.bashrc
 
 echo "Installing OpenCV Python package..."
 pip install opencv-python
+
+echo "Installing dependencies"
+rosdep update
+cd ~/BuggyRace
+rosdep install --from-paths src --ignore-src -r -y
+
 
 echo "Script execution completed."
 
