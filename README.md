@@ -21,16 +21,14 @@ We hope this competition inspires students to delve deeper into the world of rob
 To install the BuggyRace competition source files and required software, run the following command in your terminal:
 
 ```bash
-cd path/to/buggy_race_install
-bash buggy_race_install
+bash ~/Downloads/buggy_race_install.bash
 ```
 
 ### FOXGLOVE
 To install Foxglove run the following commands
 
 ```bash
-cd ~/BuggyRace/foxglove/
-bash install_foxglove.bash
+bash ~/BuggyRace/foxglove/install_foxglove.bash
 ```
 
 
