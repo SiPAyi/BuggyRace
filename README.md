@@ -19,6 +19,7 @@ We hope this competition inspires students to delve deeper into the world of rob
 
 ### ROS2, GAZEBO, SOURCE FILES & UPDATES
 To install the BuggyRace competition source files and required software, first, download the installation script from the following link: [Download buggy_race_install.bash](https://github.com/SiPAyi/BuggyRace/blob/main/buggy_race_install.bash)
+
 Then, run the following commands in your terminal:
 
 ```bash
