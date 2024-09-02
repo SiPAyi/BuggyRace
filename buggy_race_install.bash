@@ -93,7 +93,7 @@ if ! grep -qF "BuggyRace" ~/.bashrc; then
 # BuggyRace
 source /opt/ros/humble/setup.bash
 
-if [ -f \$HOME/cognipilot/gazebo/install/setup.sh ]; then
+if [ -f \$HOME/BuggyRace/install/setup.sh ]; then
   source \$HOME/BuggyRace/install/setup.sh
 fi
 source /usr/share/colcon_cd/function/colcon_cd.sh
