@@ -23,7 +23,7 @@ else
     https://api.github.com/repos/foxglove/studio/releases/latest \
     | jq '.assets[0].browser_download_url' | xargs wget
   sudo apt install ./foxglove-studio-*.deb
-  cd ~/cognipilot
+  cd ~/BuggyRace
   rm -rf /tmp/foxglove-install
 fi
 
