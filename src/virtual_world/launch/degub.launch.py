@@ -66,7 +66,7 @@ def generate_launch_description():
                           ('use_sim_time', LaunchConfiguration('sim'))])
 
     foxglove_studio = ExecuteProcess(
-        cmd=["foxglove-studio",  # Command to start Foxglove Studio],
+        cmd=["foxglove-studio"],
         name='foxglove-studio',
         condition=IfCondition(LaunchConfiguration('foxglove')),
         output='log',
