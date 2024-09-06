@@ -133,7 +133,7 @@ rosdep install --from-paths src --ignore-src -r -y
 
 echo "Building BuggyRace workspace..."
 cd ~/BuggyRace
-colcon build --symlink-install
+colcon build
 source ~/.bashrc
 
 echo "Script execution completed."
