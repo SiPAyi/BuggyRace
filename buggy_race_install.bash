@@ -123,8 +123,8 @@ echo "Installing OpenCV Python package..."
 pip install opencv-python
 
 echo "Updating rosdep..."
-sudo rosdep init
-sudo rosdep update
+rosdep init
+rosdep update
 
 echo "Installing dependencies"
 cd ~/BuggyRace

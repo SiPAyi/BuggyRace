@@ -21,7 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             'detect = line_follower.line_detector:main',
-            'follower = line_follower.line_follower:main'
+            'follower = line_follower.line_follower:main',
+            'good_detect = line_follower.good_line_detector:main',
+            'good_follower = line_follower.good_line_follower:main'
         ],
     },
 )
