@@ -123,7 +123,7 @@ echo "Installing OpenCV Python package..."
 pip install opencv-python
 
 echo "Updating rosdep..."
-rosdep init
+sudo rosdep init
 rosdep update
 
 echo "Installing dependencies"
