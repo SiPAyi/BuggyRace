@@ -12,13 +12,13 @@ from launch_ros.actions import Node
 
 # Launch Arguments
 ARGUMENTS = [
-    DeclareLaunchArgument('x', default_value=['2.90'],
+    DeclareLaunchArgument('x', default_value=['11'], #2.90
         description='x position'),
-    DeclareLaunchArgument('y', default_value=['0.00'],
+    DeclareLaunchArgument('y', default_value=['2.5'], #0.0
         description='y position'),
     DeclareLaunchArgument('z', default_value=['0.10'],
         description='z position'),
-    DeclareLaunchArgument('yaw', default_value=['1.02'],
+    DeclareLaunchArgument('yaw', default_value=['1.5'], #1.02
         description='yaw position'),
     DeclareLaunchArgument('sync', default_value='false',
                           choices=['true', 'false'],

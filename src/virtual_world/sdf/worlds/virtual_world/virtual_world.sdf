@@ -103,7 +103,8 @@
         <pose>0 0 -0.014 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.35 0.35 0.35</scale>
+            <!-- <scale>0.35 0.35 0.35</scale> -->
+            <scale>1 1 1</scale>
             <uri>model://../tracks/track1_s80.dae</uri>
           </mesh>
         </geometry>
